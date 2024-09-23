@@ -18,6 +18,7 @@ public class CreateAccessLevelCommandHandler(IApplicationDbContext dbContext,
             LevelName = request.LevelName,
         };
         var addedAccessLevel =  (await dbContext.AccessLevels.AddAsync(newAccessLevel, cancellationToken)).Entity;
+        await dbContext.SaveChangesAsync(cancellationToken);
 
         return mapper.Map<AccessLevelResponse>(addedAccessLevel);
     }
