@@ -35,16 +35,18 @@ public class UserRegisterCommandHandler(IApplicationDbContext dbContext,
         ThrowExceptionIf.ModelIsNull(request);
         var hashSalt = CryptoPassword.CreateHashSalted(request.Password);
 
+        var newCard = await dbContext.Cards.AddAsync(new Card
+        {
+            IsActive = true
+        }, cancellationToken);
+
         var newUser = new User
         {
             FullName = request.FullName,
             PasswordHash = hashSalt.Hash,
             PasswordSalt = hashSalt.Salt,
             Email = request.Email,
-            AccessCard = new Card
-            {
-                IsActive = true
-            },
+            AccessCardId = newCard.Entity.Id,
             AccessLevelId = 3,
             PhoneNumber = request.PhoneNumber,
             RoleId = (int)EnumRole.User,
