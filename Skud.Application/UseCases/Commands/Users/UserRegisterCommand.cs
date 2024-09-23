@@ -51,7 +51,7 @@ public class UserRegisterCommandHandler(IApplicationDbContext dbContext,
             Status = EnumUserStatus.Active
         };
         var addedUser = await dbContext.Users.AddAsync(newUser, cancellationToken);
-
+        await dbContext.SaveChangesAsync(cancellationToken);
         return mapper.Map<UserResponse>(addedUser.Entity);
 
     }
