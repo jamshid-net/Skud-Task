@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skud.Api", "Skud.Api\Skud.Api.csproj", "{6C023542-AFD4-4121-9F53-64C964D8F43F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skud.Api", "Skud.Api\Skud.Api.csproj", "{6C023542-AFD4-4121-9F53-64C964D8F43F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{209FC511-F1D4-4C77-8FFF-E27E8E4C6E36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{040E3208-309D-4F62-B7E4-249E9E9DFF92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{040E3208-309D-4F62-B7E4-249E9E9DFF92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skud.Domain", "Skud.Domain\Skud.Domain.csproj", "{EFAEDE05-BFA3-4D79-B26C-C4C72B035885}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skud.Domain", "Skud.Domain\Skud.Domain.csproj", "{EFAEDE05-BFA3-4D79-B26C-C4C72B035885}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skud.Application", "Skud.Application\Skud.Application.csproj", "{E612DFDA-0331-4926-9532-CE27D9B065BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skud.Application", "Skud.Application\Skud.Application.csproj", "{E612DFDA-0331-4926-9532-CE27D9B065BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skud.Infrastructure", "Skud.Infrastructure\Skud.Infrastructure.csproj", "{715D5ECF-42B8-47E2-A63F-4DE8016616ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skud.Infrastructure", "Skud.Infrastructure\Skud.Infrastructure.csproj", "{715D5ECF-42B8-47E2-A63F-4DE8016616ED}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{27951A18-B8C5-4318-96AE-548AD3CC6830}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{715D5ECF-42B8-47E2-A63F-4DE8016616ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{715D5ECF-42B8-47E2-A63F-4DE8016616ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{715D5ECF-42B8-47E2-A63F-4DE8016616ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27951A18-B8C5-4318-96AE-548AD3CC6830}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27951A18-B8C5-4318-96AE-548AD3CC6830}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27951A18-B8C5-4318-96AE-548AD3CC6830}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27951A18-B8C5-4318-96AE-548AD3CC6830}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

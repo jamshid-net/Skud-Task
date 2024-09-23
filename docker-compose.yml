@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  skud.api:
+    image: ${DOCKER_REGISTRY-}skudapi
+    build:
+      context: .
+      dockerfile: Skud.Api/Dockerfile
+     

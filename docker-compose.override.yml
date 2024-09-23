@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  skud.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+    ports:
+      - "14356:8080"
