@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\AccessRecords\" />
     <Folder Include="Models\Cards\" />
     <Folder Include="UseCases\Commands\Cards\" />
   </ItemGroup>

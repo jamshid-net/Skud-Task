@@ -14,7 +14,7 @@ public class DoorController : BaseController
     public async Task<ResponseData<int>> CreateDoor(CreateDoorCommand command, CancellationToken ct)
     => await Mediator.Send(command, ct);
 
-    [HttpPost]
+    [HttpPut]
     public async Task<ResponseData<DoorResponse>> UpdateDoor(UpdateDoorCommand command, CancellationToken ct)
     => await Mediator.Send(command, ct);
 
