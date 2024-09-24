@@ -96,6 +96,14 @@ public static class RegistrationServices
         services.AddSwaggerDocument(
             document =>
             {
+                document.Title = "Copy this for fast filter: " + """
+                                                                 {
+                                                                                                   "pageIndex": 0,
+                                                                                                   "pageSize": 10,
+                                                                                                   "sort": null,
+                                                                                                   "filter": null
+                                                                                                 }
+                                                                 """;
                 document.AddSecurity("Bearer Token", Enumerable.Empty<string>(),
                     new OpenApiSecurityScheme
                     {
