@@ -24,4 +24,8 @@ public class AccessLevelController : BaseController
     public async Task<ResponseData<PageList<AccessLevelResponse>>> GetAllAccessLevels(ZorroFilterRequest zorroFilterRequest, CancellationToken ct)
     => await Mediator.Send(new GetAllAccessLevelsQuery(zorroFilterRequest), ct);
 
+    [HttpPut]
+    public async Task<ResponseData<ResponseSuccess>> SetAccessLevelToUser(SetAccessLevelToUserCommand command, CancellationToken ct)
+    => await Mediator.Send(command, ct);
+
 }
