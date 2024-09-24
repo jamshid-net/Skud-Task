@@ -12,8 +12,8 @@ using Skud.Infrastructure.Data;
 namespace Skud.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240922161915_first_init")]
-    partial class first_init
+    [Migration("20240924044038_init_after_fix_bug")]
+    partial class init_after_fix_bug
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -202,82 +202,82 @@ namespace Skud.Infrastructure.Migrations
                         {
                             Id = 1,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2024, 9, 22, 21, 19, 15, 461, DateTimeKind.Local).AddTicks(185),
+                            CreatedDate = new DateTime(2024, 9, 24, 9, 40, 38, 761, DateTimeKind.Local).AddTicks(1020),
                             Name = "CreateOrUpdateSp",
                             UpdatedBy = 0,
-                            UpdatedDate = new DateTime(2024, 9, 22, 21, 19, 15, 461, DateTimeKind.Local).AddTicks(204)
+                            UpdatedDate = new DateTime(2024, 9, 24, 9, 40, 38, 761, DateTimeKind.Local).AddTicks(1029)
                         },
                         new
                         {
                             Id = 2,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2024, 9, 22, 21, 19, 15, 461, DateTimeKind.Local).AddTicks(207),
+                            CreatedDate = new DateTime(2024, 9, 24, 9, 40, 38, 761, DateTimeKind.Local).AddTicks(1031),
                             Name = "DeleteSp",
                             UpdatedBy = 0,
-                            UpdatedDate = new DateTime(2024, 9, 22, 21, 19, 15, 461, DateTimeKind.Local).AddTicks(207)
+                            UpdatedDate = new DateTime(2024, 9, 24, 9, 40, 38, 761, DateTimeKind.Local).AddTicks(1031)
                         },
                         new
                         {
                             Id = 3,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2024, 9, 22, 21, 19, 15, 461, DateTimeKind.Local).AddTicks(209),
+                            CreatedDate = new DateTime(2024, 9, 24, 9, 40, 38, 761, DateTimeKind.Local).AddTicks(1049),
                             Name = "GetUsers",
                             UpdatedBy = 0,
-                            UpdatedDate = new DateTime(2024, 9, 22, 21, 19, 15, 461, DateTimeKind.Local).AddTicks(209)
+                            UpdatedDate = new DateTime(2024, 9, 24, 9, 40, 38, 761, DateTimeKind.Local).AddTicks(1050)
                         },
                         new
                         {
                             Id = 4,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2024, 9, 22, 21, 19, 15, 461, DateTimeKind.Local).AddTicks(210),
+                            CreatedDate = new DateTime(2024, 9, 24, 9, 40, 38, 761, DateTimeKind.Local).AddTicks(1050),
                             Name = "BlockOrUnlockUser",
                             UpdatedBy = 0,
-                            UpdatedDate = new DateTime(2024, 9, 22, 21, 19, 15, 461, DateTimeKind.Local).AddTicks(211)
+                            UpdatedDate = new DateTime(2024, 9, 24, 9, 40, 38, 761, DateTimeKind.Local).AddTicks(1051)
                         },
                         new
                         {
                             Id = 5,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2024, 9, 22, 21, 19, 15, 461, DateTimeKind.Local).AddTicks(212),
+                            CreatedDate = new DateTime(2024, 9, 24, 9, 40, 38, 761, DateTimeKind.Local).AddTicks(1052),
                             Name = "DeleteUser",
                             UpdatedBy = 0,
-                            UpdatedDate = new DateTime(2024, 9, 22, 21, 19, 15, 461, DateTimeKind.Local).AddTicks(212)
+                            UpdatedDate = new DateTime(2024, 9, 24, 9, 40, 38, 761, DateTimeKind.Local).AddTicks(1052)
                         },
                         new
                         {
                             Id = 6,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2024, 9, 22, 21, 19, 15, 461, DateTimeKind.Local).AddTicks(213),
+                            CreatedDate = new DateTime(2024, 9, 24, 9, 40, 38, 761, DateTimeKind.Local).AddTicks(1053),
                             Name = "CreateOrUpdateUser",
                             UpdatedBy = 0,
-                            UpdatedDate = new DateTime(2024, 9, 22, 21, 19, 15, 461, DateTimeKind.Local).AddTicks(213)
+                            UpdatedDate = new DateTime(2024, 9, 24, 9, 40, 38, 761, DateTimeKind.Local).AddTicks(1053)
                         },
                         new
                         {
                             Id = 7,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2024, 9, 22, 21, 19, 15, 461, DateTimeKind.Local).AddTicks(214),
+                            CreatedDate = new DateTime(2024, 9, 24, 9, 40, 38, 761, DateTimeKind.Local).AddTicks(1053),
                             Name = "CreateOrUpdateRole",
                             UpdatedBy = 0,
-                            UpdatedDate = new DateTime(2024, 9, 22, 21, 19, 15, 461, DateTimeKind.Local).AddTicks(215)
+                            UpdatedDate = new DateTime(2024, 9, 24, 9, 40, 38, 761, DateTimeKind.Local).AddTicks(1054)
                         },
                         new
                         {
                             Id = 8,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2024, 9, 22, 21, 19, 15, 461, DateTimeKind.Local).AddTicks(216),
+                            CreatedDate = new DateTime(2024, 9, 24, 9, 40, 38, 761, DateTimeKind.Local).AddTicks(1054),
                             Name = "DeleteRole",
                             UpdatedBy = 0,
-                            UpdatedDate = new DateTime(2024, 9, 22, 21, 19, 15, 461, DateTimeKind.Local).AddTicks(216)
+                            UpdatedDate = new DateTime(2024, 9, 24, 9, 40, 38, 761, DateTimeKind.Local).AddTicks(1055)
                         },
                         new
                         {
                             Id = 9,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2024, 9, 22, 21, 19, 15, 461, DateTimeKind.Local).AddTicks(217),
+                            CreatedDate = new DateTime(2024, 9, 24, 9, 40, 38, 761, DateTimeKind.Local).AddTicks(1055),
                             Name = "GetRole",
                             UpdatedBy = 0,
-                            UpdatedDate = new DateTime(2024, 9, 22, 21, 19, 15, 461, DateTimeKind.Local).AddTicks(217)
+                            UpdatedDate = new DateTime(2024, 9, 24, 9, 40, 38, 761, DateTimeKind.Local).AddTicks(1055)
                         });
                 });
 
@@ -348,10 +348,6 @@ namespace Skud.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AccessCardId")
-                        .HasColumnType("integer")
-                        .HasColumnName("access_card_id");
-
                     b.Property<int>("AccessLevelId")
                         .HasColumnType("integer")
                         .HasColumnName("access_level_id");
@@ -407,9 +403,6 @@ namespace Skud.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AccessCardId")
-                        .IsUnique();
-
                     b.HasIndex("AccessLevelId");
 
                     b.HasIndex("Email");
@@ -422,31 +415,29 @@ namespace Skud.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            AccessCardId = 1,
                             AccessLevelId = 1,
-                            CreatedDate = new DateTime(2024, 9, 22, 21, 19, 15, 461, DateTimeKind.Local).AddTicks(398),
+                            CreatedDate = new DateTime(2024, 9, 24, 9, 40, 38, 761, DateTimeKind.Local).AddTicks(1108),
                             Email = "example1@gmail.com",
                             FullName = "John Doe",
                             PasswordHash = "04e17720763c4a5203a6b3aea4b2df3551aedd0f55438dad8d6987a2dcb1ed78ad5b86afa3abe481ecab4b3d1e45aa1a86d3d0754208c05fac0c54aee27898f1",
                             PasswordSalt = "3a5f6ebb381a0b11937f3e96263eb087e09b7c2789e1f9e90d41d74cec6573f8",
                             PhoneNumber = "+998901234567",
                             RoleId = 1,
-                            Status = 0,
+                            Status = 1,
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
-                            AccessCardId = 2,
                             AccessLevelId = 2,
-                            CreatedDate = new DateTime(2024, 9, 22, 21, 19, 15, 461, DateTimeKind.Local).AddTicks(401),
+                            CreatedDate = new DateTime(2024, 9, 24, 9, 40, 38, 761, DateTimeKind.Local).AddTicks(1109),
                             Email = "example2@gmail.com",
                             FullName = "Mike Tyson",
                             PasswordHash = "04e17720763c4a5203a6b3aea4b2df3551aedd0f55438dad8d6987a2dcb1ed78ad5b86afa3abe481ecab4b3d1e45aa1a86d3d0754208c05fac0c54aee27898f1",
                             PasswordSalt = "3a5f6ebb381a0b11937f3e96263eb087e09b7c2789e1f9e90d41d74cec6573f8",
                             PhoneNumber = "+998901234569",
                             RoleId = 2,
-                            Status = 0,
+                            Status = 1,
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
@@ -486,6 +477,9 @@ namespace Skud.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
                     b.ToTable("cards");
 
                     b.HasData(
@@ -495,7 +489,7 @@ namespace Skud.Infrastructure.Migrations
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsActive = true,
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = 0
+                            UserId = 1
                         },
                         new
                         {
@@ -503,7 +497,7 @@ namespace Skud.Infrastructure.Migrations
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsActive = true,
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = 0
+                            UserId = 2
                         });
                 });
 
@@ -616,12 +610,6 @@ namespace Skud.Infrastructure.Migrations
 
             modelBuilder.Entity("Skud.Domain.Entities.Auth.User", b =>
                 {
-                    b.HasOne("Skud.Domain.Entities.Card", "AccessCard")
-                        .WithOne("User")
-                        .HasForeignKey("Skud.Domain.Entities.Auth.User", "AccessCardId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Skud.Domain.Entities.AccessLevel", "AccessLevel")
                         .WithMany("Users")
                         .HasForeignKey("AccessLevelId")
@@ -634,22 +622,25 @@ namespace Skud.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("AccessCard");
-
                     b.Navigation("AccessLevel");
 
                     b.Navigation("Role");
                 });
 
+            modelBuilder.Entity("Skud.Domain.Entities.Card", b =>
+                {
+                    b.HasOne("Skud.Domain.Entities.Auth.User", "User")
+                        .WithOne()
+                        .HasForeignKey("Skud.Domain.Entities.Card", "UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Skud.Domain.Entities.AccessLevel", b =>
                 {
                     b.Navigation("Users");
-                });
-
-            modelBuilder.Entity("Skud.Domain.Entities.Card", b =>
-                {
-                    b.Navigation("User")
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

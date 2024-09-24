@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Skud.Application.Interfaces;
 using Skud.Domain.Entities;
+using Skud.Domain.Entities.Auth;
 
 namespace Skud.Application.UseCases.Commands.AccessRecords;
 public class AccessRecordCommand : IRequest<bool>
@@ -13,12 +14,19 @@ public class AccessRecordCommandHandler(IApplicationDbContext dbContext) : IRequ
 {
     public async Task<bool> Handle(AccessRecordCommand request, CancellationToken cancellationToken)
     {
+        var foundCardAndUser = await dbContext.Cards.Include(x => x.User)
+                             .FirstOrDefaultAsync(x => x.Id == request.CardId, cancellationToken);
 
-        var foundUser = await dbContext.Users.FirstOrDefaultAsync(x => x.AccessCardId ==  request.CardId, cancellationToken);
+        
+
+        var foundUser = foundCardAndUser?.User;
+
+        if(foundCardAndUser is null)
+            ThrowExceptionIf.AccessDenied("Access denied user not found!");
 
         if(foundUser is null)
             ThrowExceptionIf.AccessDenied("Access denied user not found!");
-        
+
         var foundDoor = await dbContext.Doors.Include(x => x.AccessLevels)
                                                    .FirstOrDefaultAsync(x => x.Id == request.DoorId, cancellationToken);
 

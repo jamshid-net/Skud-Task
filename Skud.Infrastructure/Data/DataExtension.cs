@@ -88,19 +88,7 @@ public static class DataExtension
                      }
                     );
 
-        modelBuilder.Entity<Card>()
-            .HasData( 
-                new Card
-                {
-                    Id = 1,
-                    IsActive = true,
-                },
-                new Card
-                {
-                    Id = 2,
-                    IsActive = true,
-                }
-            );
+       
 
         //ALL PASSWORDS: Jamshid123$
 
@@ -118,7 +106,6 @@ public static class DataExtension
                 Email = "example1@gmail.com",
                 AccessLevelId = 1,
                 PhoneNumber = "+998901234567",
-                AccessCardId = 1,
                 Status = EnumUserStatus.Active,
                
              
@@ -134,11 +121,25 @@ public static class DataExtension
                 Email = "example2@gmail.com",
                 AccessLevelId = 2,
                 PhoneNumber = "+998901234569",
-                AccessCardId = 2,
                 Status = EnumUserStatus.Active,
             }
         
         );
+        modelBuilder.Entity<Card>()
+            .HasData( 
+                new Card
+                {
+                    Id = 1,
+                    IsActive = true,
+                    UserId = 1
+                },
+                new Card
+                {
+                    Id = 2,
+                    IsActive = true,
+                    UserId = 2
+                }
+            );
         
     }
 }

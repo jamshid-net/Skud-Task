@@ -1,12 +1,13 @@
-﻿using Skud.Application.Interfaces;
-using Skud.Application.Models.Auths;
-using System.ComponentModel.DataAnnotations;
-using Skud.Domain.Entities.Auth;
-using Common.Helpers;
-using Skud.Domain.Entities;
-using AutoMapper;
+﻿using AutoMapper;
 using Common.Enums;
+using Common.Helpers;
+using Serilog;
+using Skud.Application.Interfaces;
+using Skud.Application.Models.Auths;
+using Skud.Domain.Entities;
+using Skud.Domain.Entities.Auth;
 using Skud.Domain.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace Skud.Application.UseCases.Commands.Users;
 public class UserRegisterCommand : IRequest<UserResponse>
@@ -17,11 +18,11 @@ public class UserRegisterCommand : IRequest<UserResponse>
     [Required]
     [EmailAddress(ErrorMessage = "Invalid email address.")]
     public string Email { get; set; }
-    
+
     [Required]
     [MinLength(6)]
     public string Password { get; set; }
-    
+
     [Phone(ErrorMessage = "Invalid phone number.")]
     [Required]
     public string PhoneNumber { get; set; }
@@ -32,29 +33,41 @@ public class UserRegisterCommandHandler(IApplicationDbContext dbContext,
 {
     public async Task<UserResponse> Handle(UserRegisterCommand request, CancellationToken cancellationToken)
     {
+        await using var transaction = await dbContext.BeginTransactionAsync(cancellationToken);
         ThrowExceptionIf.ModelIsNull(request);
         var hashSalt = CryptoPassword.CreateHashSalted(request.Password);
-
-        var newCard = await dbContext.Cards.AddAsync(new Card
+        try
         {
-            IsActive = true
-        }, cancellationToken);
+            var newUser = new User
+            {
+                FullName = request.FullName,
+                PasswordHash = hashSalt.Hash,
+                PasswordSalt = hashSalt.Salt,
+                Email = request.Email,
+                AccessLevelId = 3,
+                PhoneNumber = request.PhoneNumber,
+                RoleId = (int)EnumRole.User,
+                Status = EnumUserStatus.Active
+            };
+            var addedUser = await dbContext.Users.AddAsync(newUser, cancellationToken);
+            await dbContext.SaveChangesAsync(cancellationToken);
+            await dbContext.Cards.AddAsync(new Card
+            {
+                IsActive = true,
+                UserId = addedUser.Entity.Id,
 
-        var newUser = new User
+            }, cancellationToken);
+            await dbContext.SaveChangesAsync(cancellationToken);
+            await transaction.CommitAsync(cancellationToken);
+            return mapper.Map<UserResponse>(addedUser.Entity);
+        }
+        catch (Exception e)
         {
-            FullName = request.FullName,
-            PasswordHash = hashSalt.Hash,
-            PasswordSalt = hashSalt.Salt,
-            Email = request.Email,
-            AccessCardId = newCard.Entity.Id,
-            AccessLevelId = 3,
-            PhoneNumber = request.PhoneNumber,
-            RoleId = (int)EnumRole.User,
-            Status = EnumUserStatus.Active
-        };
-        var addedUser = await dbContext.Users.AddAsync(newUser, cancellationToken);
-        await dbContext.SaveChangesAsync(cancellationToken);
-        return mapper.Map<UserResponse>(addedUser.Entity);
+            await transaction.RollbackAsync(cancellationToken);
+            Log.Error(e.Message);
+            throw;
+
+        }
 
     }
 }

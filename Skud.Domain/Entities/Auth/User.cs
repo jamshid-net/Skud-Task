@@ -30,15 +30,6 @@ public class User : BaseEntity
     [IgnoreDataMember]
     public virtual Role Role { get; set; }
 
-
-    [Column("access_card_id")]
-    [Required]
-    [ForeignKey("AccessCard")]
-    public int AccessCardId { get; set; }
-    [IgnoreDataMember]
-    public virtual Card AccessCard { get; set; }
-
-
     [Column("access_level_id")]
     [Required]
     [ForeignKey("AccessLevel")]

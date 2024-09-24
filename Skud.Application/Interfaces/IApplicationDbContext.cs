@@ -1,5 +1,6 @@
 ﻿using Common.Repository;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using Skud.Domain.Entities;
 using Skud.Domain.Entities.Auth;
 
@@ -14,4 +15,7 @@ public interface IApplicationDbContext
     DbSet<Role> Roles { get; set; }
     DbSet<Permission> Permissions { get; set; }
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
+    Task<IDbContextTransaction> BeginTransactionAsync(CancellationToken cancellationToken = default);
+    Task CommitTransactionAsync(CancellationToken cancellationToken = default);
+    Task RollbackTransactionAsync(CancellationToken cancellationToken = default);
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using Skud.Application.Interfaces;
 using Skud.Domain.Entities;
 using Skud.Domain.Entities.Auth;
@@ -20,7 +21,20 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
         optionsBuilder.AddInterceptors(interceptor);
         base.OnConfiguring(optionsBuilder);
     }
+    public async Task<IDbContextTransaction> BeginTransactionAsync(CancellationToken cancellationToken = default)
+    {
+        return await Database.BeginTransactionAsync(cancellationToken);
+    }
 
+    public async Task CommitTransactionAsync(CancellationToken cancellationToken = default)
+    {
+        await Database.CommitTransactionAsync(cancellationToken);
+    }
+
+    public async Task RollbackTransactionAsync(CancellationToken cancellationToken = default)
+    {
+        await Database.RollbackTransactionAsync(cancellationToken);
+    }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         //door
@@ -42,10 +56,10 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
                     .WithMany();
 
 
-        modelBuilder.Entity<User>()
-                    .HasOne(u => u.AccessCard)
-                    .WithOne(ac => ac.User)
-                    .HasForeignKey<User>(u => u.AccessCardId);
+        modelBuilder.Entity<Card>()
+                    .HasOne(u => u.User)
+                    .WithOne()
+                    .OnDelete(DeleteBehavior.NoAction);
 
 
         modelBuilder.SeedData();
